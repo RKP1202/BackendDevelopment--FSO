@@ -81,7 +81,7 @@ app.delete('/api/persons/:id', (request, response) => {
 // Creating a new Resource
 app.post('/api/persons', (request, response) => {
     const person = request.body;
-    if (!person.name && !person.number) {
+    if (!person.name || !person.number) {
         return response.status(400).json({
             error: 'Name or number missing'
         });
